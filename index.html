@@ -32,10 +32,14 @@
     }
     </script>
 
-    <!-- TẮT POPUP THÔNG BÁO QUAN TRỌNG -->
-    <script>
-      sessionStorage.setItem("infoPopupShown", "true");
-    </script>
+    <!-- TẮT HOÀN TOÀN POPUP -->
+    <style>
+      #info-popup, .popup, .popup-overlay {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+      }
+    </style>
 
   </head>
 
