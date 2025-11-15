@@ -1,103 +1,65 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Phân Tích Video AI</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tsoft 2 - Bộ Công Cụ Video AI</title>
 
-    <!-- Importmap: React + Google GenAI SDK -->
-    <script type="importmap">
-      {
-        "imports": {
-          "react/": "https://aistudiocdn.com/react@^19.1.1/",
-          "react": "https://aistudiocdn.com/react@^19.1.1",
-          "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
-          "@google/genai": "https://aistudiocdn.com/@google/genai@^1.17.0"
-        }
-      }
-    </script>
+    <link rel="stylesheet" href="./style.css">
+</head>
 
-    <!-- CSS đẹp, hiện đại, tối ưu UI -->
-    <style>
-      body {
-        margin: 0;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-          sans-serif;
-        background-color: #0f172a;
-        color: #e2e8f0;
-      }
+<body>
 
-      .app-container {
-        max-width: 900px;
-        margin: 40px auto;
-        padding: 20px;
-      }
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <img src="https://cdn-icons-png.flaticon.com/512/9068/9068699.png" width="28">
+            Tsoft Tools
+        </div>
+        <nav>
+            <a href="#">Trang chủ</a>
+            <a href="#">Thư viện</a>
+            <a href="#">Thiết lập API</a>
+        </nav>
+    </header>
 
-      h1 {
-        text-align: center;
-        font-size: 28px;
-        margin-bottom: 25px;
-        color: #38bdf8;
-        font-weight: 600;
-      }
+    <!-- MAIN -->
+    <div class="container">
 
-      .input-box {
-        background: #1e293b;
-        border: 1px solid #334155;
-        border-radius: 10px;
-        padding: 16px;
-        font-size: 15px;
-        width: 100%;
-        color: #e2e8f0;
-        transition: 0.2s;
-        height: 42px;
-      }
+        <h1 class="page-title">Tsoft 2 - Bộ Công Cụ Video AI</h1>
+        <div class="page-sub">Bộ công cụ AI hỗ trợ tạo hình – prompt – thumbnail</div>
 
-      .input-box:focus {
-        border-color: #38bdf8;
-        box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
-        outline: none;
-      }
+        <div class="grid-cards">
 
-      button {
-        width: 100%;
-        margin-top: 18px;
-        padding: 12px;
-        background: #38bdf8;
-        border: none;
-        border-radius: 8px;
-        font-size: 16px;
-        cursor: pointer;
-        color: #0f172a;
-        font-weight: 600;
-        transition: 0.2s;
-      }
+            <!-- CARD 1 -->
+            <div class="card">
+                <img class="card-icon" src="https://cdn-icons-png.flaticon.com/512/1829/1829580.png">
+                <div class="card-title">Tạo hình ảnh theo kịch bản</div>
+                <div class="card-desc">Tải lên kịch bản để AI phân cảnh và sinh prompt + hình minh họa.</div>
+                <button class="card-button">Bắt đầu</button>
+            </div>
 
-      button:hover {
-        background: #0ea5e9;
-      }
+            <!-- CARD 2 -->
+            <div class="card">
+                <img class="card-icon" src="https://cdn-icons-png.flaticon.com/512/819/819814.png">
+                <div class="card-title">Tạo prompt Veo3 hàng loạt</div>
+                <div class="card-desc">AI xác định nhân vật, phong cách và sinh prompt Veo3 tự động.</div>
+                <button class="card-button">Bắt đầu</button>
+            </div>
 
-      .output-box {
-        margin-top: 25px;
-        background: #1e293b;
-        padding: 18px;
-        border-radius: 10px;
-        border: 1px solid #334155;
-        white-space: pre-wrap;
-        line-height: 1.5;
-        font-size: 15px;
-      }
-    </style>
-  </head>
+            <!-- CARD 3 -->
+            <div class="card">
+                <img class="card-icon" src="https://cdn-icons-png.flaticon.com/512/747/747676.png">
+                <div class="card-title">Tạo Thumbnail theo ảnh mẫu</div>
+                <div class="card-desc">AI phân tích thumbnail mẫu và tạo prompt để làm ảnh tương tự.</div>
+                <button class="card-button">Bắt đầu</button>
+            </div>
 
-  <body>
-    <div id="root">
-      <div style="padding:20px;text-align:center">
-        Đang tải ứng dụng Phân Tích Video AI...
-      </div>
+        </div>
+
     </div>
 
-    <!-- React bundle -->
-    <script type="module" src="./index-Dg0lys3F.js"></script>
-  </body>
+    <footer>© 2025 Tsoft 2 - All rights reserved</footer>
+
+</body>
 </html>
