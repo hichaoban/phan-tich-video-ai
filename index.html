@@ -17,151 +17,190 @@
     }
     </script>
 
-    <!-- CSS MAIN -->
+    <!-- CSS: layout + thu nhỏ icon -->
     <style>
-      /* ======= RESET ======= */
-      * {
-        margin: 0;
-        padding: 0;
+      /* ========== RESET ========== */
+      *, *::before, *::after {
         box-sizing: border-box;
       }
-
       body {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
         background-color: #0f172a;
-        color: #e2e8f0;
-        line-height: 1.6;
+        color: #e5e7eb;
       }
 
-      /* ======= LAYOUT ======= */
+      /* ========== CONTAINER CHUNG (thu gọn nội dung vào giữa) ========== */
       .container {
+        width: 100%;
         max-width: 1200px;
-        margin: auto;
-        padding: 40px 20px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
       }
 
-      h1 {
-        text-align: center;
-        margin-bottom: 40px;
-        color: #c7d2fe;
-        font-size: 32px;
-        font-weight: 700;
+      /* ========== HEADER ========== */
+      header {
+        background-color: #0f172a;
+        border-bottom: 1px solid #1f2937;
+      }
+      .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      nav button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: none;
+        background: none;
+        color: #9ca3af;
+        font-size: 1rem;
+        cursor: pointer;
+        padding: 0.25rem 0.5rem;
+        transition: color 0.2s ease;
+      }
+      nav button:hover {
+        color: #ffffff;
       }
 
-      /* ======= CARD ======= */
+      /* ========== TEXT UTILS ========== */
+      .text-center { text-align: center; }
+      .text-lg { font-size: 1.125rem; }
+      .text-xl { font-size: 1.25rem; }
+      .text-2xl { font-size: 1.5rem; }
+      .text-3xl { font-size: 1.875rem; }
+      .text-4xl { font-size: 2.25rem; }
+
+      .font-semibold { font-weight: 600; }
+      .font-bold { font-weight: 700; }
+      .font-extrabold { font-weight: 800; }
+
+      .leading-tight { line-height: 1.2; }
+      .leading-relaxed { line-height: 1.6; }
+
+      .text-dark-text-secondary { color: #9ca3af; }
+      .text-brand-light-purple { color: #8b5cf6; }
+
+      /* ========== SPACING ========== */
+      .mt-16 { margin-top: 4rem; }
+      .mt-24 { margin-top: 6rem; }
+      .mb-4 { margin-bottom: 1rem; }
+      .mb-6 { margin-bottom: 1.5rem; }
+      .mb-8 { margin-bottom: 2rem; }
+      .mb-10 { margin-bottom: 2.5rem; }
+      .mb-12 { margin-bottom: 3rem; }
+
+      .py-16 {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+
+      /* ========== GRID CARD TRANG CHÍNH ========== */
       .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
+      }
+      .grid-cols-1 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+      .gap-8 {
+        gap: 2rem;
+      }
+      @media (min-width: 768px) {
+        .md\:grid-cols-2 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (min-width: 1024px) {
+        .lg\:grid-cols-3 {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
       }
 
-      .card {
-        background: #1e293b;
-        padding: 32px 24px;
-        border-radius: 20px;
-        text-align: center;
-        transition: 0.2s;
-        border: 1px solid rgba(148, 163, 184, 0.1);
-      }
+      .bg-dark-card { background-color: #111827; }
+      .border-dark-border { border-color: #1f2937; }
 
-      .card:hover {
-        transform: translateY(-4px);
-        border-color: #6366f1;
-      }
+      .border { border-width: 1px; border-style: solid; }
+      .rounded-xl { border-radius: 1rem; }
+      .p-8 { padding: 2rem; }
 
-      /* ======= ICON 75% SIZE ======= */
-      .icon {
-        width: 120px;     /* giảm từ 160px → 120px */
-        height: 120px;
-        margin: 0 auto 20px auto;
-      }
-
-      /* ======= TEXT ======= */
-      .card-title {
-        font-size: 20px;
-        font-weight: 700;
-        margin-bottom: 10px;
-        color: #c7d2fe;
-      }
-
-      .card-desc {
-        font-size: 14px;
-        opacity: 0.8;
-        margin-bottom: 25px;
-      }
-
-      /* ======= START BUTTON ======= */
-      .start {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        color: #a78bfa;
-        font-weight: 600;
-        font-size: 16px;
+      .group {
+        position: relative;
         cursor: pointer;
-        transition: 0.2s;
+      }
+      .group.bg-dark-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease,
+          border-color 0.2s ease;
+      }
+      .group.bg-dark-card:hover {
+        transform: translateY(-4px);
+        border-color: #8b5cf6;
+        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.9);
       }
 
-      .start:hover {
-        color: #c4b5fd;
+      /* ========== ICON SIZE (GIẢM 3/4) ========== */
+
+      /* icon nav nhỏ */
+      .h-6 { height: 1.125rem; }  /* ~75% của 1.5rem */
+      .w-6 { width: 1.125rem; }
+
+      /* icon cỡ trung */
+      .h-8 { height: 1.5rem; }
+      .w-8 { width: 1.5rem; }
+
+      /* icon cỡ lớn (trong card chính) */
+      .h-12 { height: 2.25rem; }
+      .w-12 { width: 2.25rem; }
+
+      /* đảm bảo SVG tuân theo kích thước class */
+      svg.h-6, svg.h-8, svg.h-12 {
+        width: inherit;
+        height: inherit;
       }
 
-      .arrow {
-        width: 42px;    /* giảm nhỏ lại */
-        height: 42px;
+      /* icon chính trong các card chức năng – cho to hơn nav nhưng vẫn gọn */
+      .group.bg-dark-card svg {
+        width: 4rem;   /* 64px */
+        height: 4rem;
+      }
+
+      /* ========== COUNTDOWN BOX ========== */
+      .bg-dark-card\/50 { background-color: rgba(15, 23, 42, 0.8); }
+      .rounded-lg { border-radius: 0.75rem; }
+      .p-4 { padding: 1rem; }
+      .max-w-xl { max-width: 36rem; }
+      .mx-auto { margin-left: auto; margin-right: auto; }
+
+      /* ========== FOOTER ========== */
+      footer {
+        border-top: 1px solid #1f2937;
+        padding: 1rem 0;
+        text-align: center;
+        font-size: 0.875rem;
+        color: #9ca3af;
+      }
+
+      /* Text loading mặc định khi React chưa mount */
+      #root > div {
+        padding: 1.5rem;
+        text-align: center;
+        color: #9ca3af;
       }
     </style>
   </head>
 
   <body>
-    <div class="container">
-      <h1>Tsoft 2 - Bộ Công Cụ Video AI</h1>
-
-      <div class="grid">
-
-        <!-- CARD 1 -->
-        <div class="card">
-          <img class="icon" src="./icons/image.png" alt="" />
-          <div class="card-title">Tạo hình ảnh theo kịch bản</div>
-          <div class="card-desc">
-            Tải lên kịch bản và AI sẽ tự động tạo prompt + hình minh họa cho từng phân cảnh.
-          </div>
-          <div class="start">
-            Bắt đầu
-            <img class="arrow" src="./icons/arrow.png">
-          </div>
-        </div>
-
-        <!-- CARD 2 -->
-        <div class="card">
-          <img class="icon" src="./icons/video.png" alt="" />
-          <div class="card-title">Tạo prompt Veo3 hàng loạt</div>
-          <div class="card-desc">
-            Xác định nhân vật và kịch bản để AI sinh prompt video chi tiết, đúng phong cách.
-          </div>
-          <div class="start">
-            Bắt đầu
-            <img class="arrow" src="./icons/arrow.png">
-          </div>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="card">
-          <img class="icon" src="./icons/star.png" alt="" />
-          <div class="card-title">Tạo Thumbnail theo ảnh mẫu</div>
-          <div class="card-desc">
-            Tải ảnh thumbnail mẫu để AI phân tích và tạo ra prompt giúp bạn làm ảnh tương tự.
-          </div>
-          <div class="start">
-            Bắt đầu
-            <img class="arrow" src="./icons/arrow.png">
-          </div>
-        </div>
-
-      </div>
+    <!-- React sẽ render toàn bộ app vào đây -->
+    <div id="root">
+      <div>Đang tải ứng dụng Phân Tích Video AI...</div>
     </div>
 
-    <!-- Bundle React của anh -->
+    <!-- Bundle React đã build sẵn -->
     <script type="module" src="./index-Dg0lys3F.js"></script>
   </body>
 </html>
