@@ -142,6 +142,34 @@
         border-color: #8b5cf6;
         box-shadow: 0 20px 40px rgba(15, 23, 42, 0.9);
       }
+/* FIX: Giảm kích thước ô nhập đầu vào */
+input[type="text"],
+input[type="file"],
+textarea,
+select {
+  max-width: 500px !important;   /* thu gọn lại */
+  padding: 10px 14px !important;
+  font-size: 14px !important;
+  border-radius: 10px !important;
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+  color: #f1f5f9 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+}
+
+/* Nếu React render box lớn hơn → ép chiều cao */
+input, textarea {
+  max-height: 45px !important;
+}
+
+/* Với vùng upload kéo-thả */
+.dropzone, .upload-area {
+  max-width: 500px !important;
+  padding: 30px !important;
+  margin: auto !important;
+}
 
       /* ========== ICON SIZE (GIẢM 3/4) ========== */
 
@@ -204,3 +232,4 @@
     <script type="module" src="./index-Dg0lys3F.js"></script>
   </body>
 </html>
+
